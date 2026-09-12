@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="storage-warning" class="toast" role="status" aria-live="polite"></div>
+
+  <main class="dashboard">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PERSONAL DASHBOARD</p>
+        <h1 id="greeting">Hello</h1>
+        <p id="current-date" class="date"></p>
+      </div>
+      <div class="topbar-actions">
+        <button id="theme-toggle" class="icon-button" type="button" aria-label="Switch theme">
+          🌙
+        </button>
+      </div>
+    </header>
+
+    <section class="widget clock-widget">
+      <div>
+        <span class="widget-label">LOCAL TIME</span>
+        <div id="current-time" class="clock">00:00:00</div>
+      </div>
+      <form id="username-form" class="inline-form">
+        <label for="username">Your name</label>
+        <div class="form-row">
+          <input id="username" type="text" maxlength="50" autocomplete="name" placeholder="Enter your name">
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="widget timer-widget">
+      <div class="widget-heading">
+        <div>
+          <span class="widget-label">FOCUS TIMER</span>
+          <h2>Pomodoro</h2>
+        </div>
+        <form id="duration-form" class="duration-form">
+          <label for="duration">Minutes</label>
+          <div class="form-row">
+            <input id="duration" type="number" min="1" max="60" step="1" required>
+            <button type="submit">Set</button>
+          </div>
+          <small id="duration-error" class="error"></small>
+        </form>
+      </div>
+
+      <div id="timer-display" class="timer-display">25:00</div>
+      <p id="timer-status" class="status">Ready</p>
+
+      <div class="timer-controls">
+        <button id="timer-start" type="button">Start</button>
+        <button id="timer-stop" type="button" class="secondary">Stop</button>
+        <button id="timer-reset" type="button" class="secondary">Reset</button>
+      </div>
+    </section>
+
+    <section class="widget todo-widget">
+      <div class="widget-heading">
+        <div>
+          <span class="widget-label">TASKS</span>
+          <h2>To-Do List</h2>
+        </div>
+      </div>
+
+      <form id="todo-form" class="add-form">
+        <input id="todo-input" type="text" maxlength="200" placeholder="What needs to be done?" required>
+        <button type="submit">Add</button>
+      </form>
+      <p id="todo-error" class="error" role="alert"></p>
+      <ul id="todo-list" class="item-list"></ul>
+    </section>
+
+    <section class="widget links-widget">
+      <div class="widget-heading">
+        <div>
+          <span class="widget-label">SHORTCUTS</span>
+          <h2>Quick Links</h2>
+        </div>
+      </div>
+
+      <form id="link-form" class="link-form">
+        <input id="link-label" type="text" maxlength="100" placeholder="Label" required>
+        <input id="link-url" type="text" maxlength="2048" placeholder="https://example.com" required>
+        <button type="submit">Add</button>
+      </form>
+      <p id="link-error" class="error" role="alert"></p>
+      <div id="link-list" class="link-list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
